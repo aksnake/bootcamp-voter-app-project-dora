@@ -11,12 +11,11 @@
         "phone": "111-222-333"
       }
     ],
-    "Elections":[
+    "elections":[
       {
         "id": 1,
         "questions": "[{\"president\", \"Give taxcut for electric vehicles on \"}]"
       }
-
     ],
     "Votes": [
       {
