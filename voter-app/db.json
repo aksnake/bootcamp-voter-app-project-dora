@@ -10,5 +10,20 @@
         "email": "sgrandghi@test.com",
         "phone": "111-222-333"
       }
+    ],
+    "Elections":[
+      {
+        "id": 1,
+        "questions": "[{\"president\", \"Give taxcut for electric vehicles on \"}]"
+      }
+
+    ],
+    "Votes": [
+      {
+      "id": 1,
+      "voterId": 1,
+      "electionId": 1,
+      "ballot": "[{\"president\": \"Dora\", \"Give taxcut for electric vehicles on \": \"yes\"}]"
+      }
     ]
 }
