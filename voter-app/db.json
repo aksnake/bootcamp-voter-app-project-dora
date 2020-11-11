@@ -1,0 +1,14 @@
+{
+    "voters": [
+      {
+        "id": 1,
+        "firstName": "Sendhil",
+        "lastName": "Grandhi",
+        "address": " 123 Some Street",
+        "city": "San Diego",
+        "birthDate": "5/1/1976",
+        "email": "sgrandghi@test.com",
+        "phone": "111-222-333"
+      }
+    ]
+}
