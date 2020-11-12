@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { createBallotForUser } from "../actions/ballotActions";
 import { VoterAppState } from "../../models/voterApp";
-import { Voter } from '../../voter/registration/models/voters';
+import { Voter } from '../../voter/models/voters';
 import { UserIdentificationForm } from '../components/userIdentification';
 // import { useParams } from 'react-router-dom';
 

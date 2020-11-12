@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react' 
 import { useParams } from 'react-router-dom';
-import { Voter } from '../../voter/registration/models/voters';
+import { Voter } from '../../voter/models/voters';
 
 export type UserIdentificationFormProps = {
     voters: Voter[],
