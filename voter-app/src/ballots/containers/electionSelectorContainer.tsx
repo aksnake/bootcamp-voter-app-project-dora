@@ -6,8 +6,18 @@ import { createBallot } from "../actions/ballotActions";
 import { ElectionSelectorForm} from "../components/electionSelector";
 import { VoterAppState } from "../../models/voterApp";
 import { Election, Question } from '../../elections/models/election';
+import {
+    useParams,
+    useHistory,
+    Route,
+    Switch,
+    useRouteMatch,
+  } from "react-router-dom";
 
 export function ElectionSelectorFormContainer() {
+    const history = useHistory();
+
+    const routeMatch = useRouteMatch();
 
     //Dummy data till we use useEffect hook to pull elections data
     const questions1: Question[] = []
@@ -33,10 +43,15 @@ export function ElectionSelectorFormContainer() {
             selectedElectionId: number,
         };
 
+    //Pass Election Id too.
+    const nextPath = (id: number) => {
+        history.push('/vote/'+id);
+    }
 
     //TODO: This doesn't need any Backend action now, we need to display User Form for identifying (and validating) user.
+    //Load UserIdentification.tsx now for selected ElectionID
     const boundActionProps =  bindActionCreators({
-        onVoteRequest: createBallot,
+        onVoteRequest: nextPath,
     },
     useDispatch()
     );

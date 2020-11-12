@@ -121,6 +121,24 @@ export const createBallot = (electionId: number) => {
   };
 };
 
+export const createBallotForUser = (electionId: number, voterId: number, phoneNumber: string) => {
+    console.log("CreateBallot request for" + electionId);
+  return (dispatch: Dispatch) => {
+    dispatch(createCreateBallotRequestAction(electionId));
+    //TODO: Not the time to create ballot -Do user verification first. using get call temporarily.
+    return fetch("http://localhost:3060/ballots")
+    // return fetch("http://localhost:3060/ballots", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(electionId),
+    // })
+    .then((res) => res.json()).then((ballot) => {
+      //console.log("Created Ballot " + ballot.id);
+      //refreshCreateBallots() (dispatch);//Vote done successfully
+    });
+  };
+};
+
 
 export interface NewBallotAction extends Action<typeof NEW_BALLOT_ACTION> {
     payload: {

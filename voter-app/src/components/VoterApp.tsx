@@ -17,6 +17,8 @@ import Dora from "../Dora.png";
 
 import { ElectionSelectorForm } from '../ballots/components/electionSelector';
 import { ElectionSelectorFormContainer } from "../ballots/containers/electionSelectorContainer";
+import { UserIdentificationForm } from "../ballots/components/userIdentification";
+import { UserValidation } from "../ballots/components/userValidation";
 
 //Voter Registration Deadlines for Upcoming Elections
 //Election Name, Last Day to Register to vote
@@ -66,7 +68,8 @@ export function VoterApp() {
               <Route path="/" exact component={Home} />
               <Route path="/voter" component={Voter} />
               <Route path="/election" component={Election} />
-              <Route path="/vote" component={Ballot} />
+              <Route path="/ballot" component={Ballot} />
+              <Route path="/vote/:id" component={UserValidation}/>
             </Switch>
           </main>
           <footer >

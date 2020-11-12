@@ -9,16 +9,16 @@ export type ElectionSelectorFormProps = {
 };
 
 export function ElectionSelectorForm(props: ElectionSelectorFormProps) {
-    const [elections, change, resetElectionSelectorForm ] = useForm (props.elections);
-    let selectedElectionId = -1;
+    const [elections,, ] = useForm (props.elections);
+    let [selectedElectionId,, resetElectionId ] = useForm (-1);
     const setElectionId = (id: number) =>  {
         selectedElectionId = id;
     }
     const submitVote = () =>  {
         if (selectedElectionId != -1) {
-        props.onVoteRequest(selectedElectionId);
-        resetElectionSelectorForm();
+            props.onVoteRequest(selectedElectionId);
         }
+        resetElectionId();
     }
     let optionItems = props.elections.map((election) =>
     <option key={election.id}>{election.id}</option>
