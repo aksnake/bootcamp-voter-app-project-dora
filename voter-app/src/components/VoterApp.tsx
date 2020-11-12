@@ -37,7 +37,7 @@ export function VoterApp() {
             <nav>
                 <ul>
                 <li>
-                    <Link to="/voter">Voters</Link>
+                    <Link to="/voter/list">Voters</Link>
                 </li>
                 <li>
                     <Link to="/election">Elections</Link>
