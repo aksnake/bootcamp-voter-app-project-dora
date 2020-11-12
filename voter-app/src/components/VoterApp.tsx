@@ -9,11 +9,14 @@ import {
   } from "react-router-dom";
 import { Election } from "./Election";
 import { Home } from "./Home";
-import { Vote } from "./Vote";
 import { Voter } from "./Voter";
+import { Ballot } from "../ballots/components/ballots";
 
 import "./VoterApp.css";
 import Dora from "../Dora.png";
+
+import { ElectionSelectorForm } from '../ballots/components/electionSelector';
+import { ElectionSelectorFormContainer } from "../ballots/containers/electionSelectorContainer";
 
 //Voter Registration Deadlines for Upcoming Elections
 //Election Name, Last Day to Register to vote
@@ -53,7 +56,7 @@ export function VoterApp() {
                     <Link to="/voter/register">Register Voter</Link>
                 </li>
                 <li>
-                    <Link to="/vote">Login to Vote</Link>
+                  <ElectionSelectorFormContainer/>
                 </li>
                 </ul>
             </nav>
@@ -63,7 +66,7 @@ export function VoterApp() {
               <Route path="/" exact component={Home} />
               <Route path="/voter" component={Voter} />
               <Route path="/election" component={Election} />
-              <Route path="/vote" component={Vote} />
+              <Route path="/vote" component={Ballot} />
             </Switch>
           </main>
           <footer >

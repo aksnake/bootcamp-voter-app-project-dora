@@ -1,8 +1,8 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
-import "./VoterApp.css";
+import "../../components/VoterApp.css";
 
-export const Vote = () => {
+export const Ballot = () => {
   const history = useHistory();
   return (
     <div>

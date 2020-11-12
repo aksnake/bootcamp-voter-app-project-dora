@@ -44,6 +44,15 @@
         }
       ],
       "id": 1
+    },
+    {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Question1"
+        }
+      ],
+      "id": 2
     }
   ],
   "ballots": [
@@ -51,7 +60,7 @@
       "id": 1,
       "voterId": 1,
       "electionId": 1,
-      "date": "11/08/2020 23:59:59.999",
+      "status": "completed",
       "answers": 
         [
           {
@@ -63,6 +72,15 @@
             "answer": false
           }
         ]
-      }
+      },
+      {
+        "id": 2,
+        "voterId": 1,
+        "electionId": 2,
+        "status": "draft",
+        "answers": 
+          [
+          ]
+        }
   ]
 }
