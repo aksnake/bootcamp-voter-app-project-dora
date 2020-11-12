@@ -6,8 +6,8 @@ import {
     Switch,
     useRouteMatch,
   } from "react-router-dom";
-import { VoterRegistrationContainer } from "../voter/containers/VoterRegistrationContainer"
-import { VotersTableContainer } from "../voter/containers/VotersTableContainer"
+import { VoterRegistrationContainer } from "../voters/containers/VoterRegistrationContainer"
+import { VotersTableContainer } from "../voters/containers/VotersTableContainer"
 
 export const Voter = () => {
     const history = useHistory();

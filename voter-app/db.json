@@ -27,18 +27,8 @@
       "city": "b",
       "birthDate": "b",
       "email": "b",
-      "phone": "b",
-      "id": 3
-    },
-    {
-      "firstName": "d",
-      "lastName": "d",
-      "address": "d",
-      "city": "d",
-      "birthDate": "d",
-      "email": "d",
       "phone": "d",
-      "id": 4
+      "id": 3
     }
   ],
   "elections": [
