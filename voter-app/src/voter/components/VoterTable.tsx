@@ -4,7 +4,7 @@ import { Voter } from "../models/voters";
 import { VoterEditRow } from "./VoterEditRow";
 import { VoterViewRow } from "./VoterViewRow";
 
-import "./VoterTable.css";
+import "./styles/VoterTable.css";
 import { VotersSort } from "../../models/voterApp";
 
 export type VoterTableProps = {
