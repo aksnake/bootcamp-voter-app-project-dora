@@ -1,6 +1,6 @@
 import { Reducer, combineReducers } from "redux";
 
-import { VotersSort } from "../../models/voterApp";
+import { VotersSort } from "../models/voterStore";
 import { Voter } from "../models/voters";
 import {
   VoterActions,

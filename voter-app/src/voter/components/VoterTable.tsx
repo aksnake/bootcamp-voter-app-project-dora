@@ -5,7 +5,7 @@ import { VoterEditRow } from "./VoterEditRow";
 import { VoterViewRow } from "./VoterViewRow";
 
 import "./styles/VoterTable.css";
-import { VotersSort } from "../../models/voterApp";
+import { VotersSort } from "../models/voterStore";
 
 export type VoterTableProps = {
   voters: Voter[];
@@ -20,8 +20,7 @@ export type VoterTableProps = {
 
 const sortArrow = (votersSort: VotersSort, sortCol: keyof Voter) => {
   return (
-    "v"
-    // votersSort.sortCol === sortCol && (votersSort.sortDir === "asc" ? "v" : "^")
+    votersSort.sortCol === sortCol && (votersSort.sortDir === "asc" ? "v" : "^")
   );
 };
 
