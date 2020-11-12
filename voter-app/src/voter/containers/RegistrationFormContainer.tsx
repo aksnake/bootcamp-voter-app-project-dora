@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 
-import { appendVoter } from "../actions/carToolActions";
+import { appendVoter } from "../actions/voterActions";
 import { RegistrationForm } from "../components/RegistrationForm";
 
 export function RegistrationFormContainer() {
