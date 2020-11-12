@@ -3,9 +3,9 @@ import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 
 import { appendVoter } from "../actions/voterActions";
-import { RegistrationForm } from "../components/RegistrationForm";
+import { VoterRegistration } from "../components/VoterRegistration";
 
-export function RegistrationFormContainer() {
+export function VoterRegistrationContainer() {
   const dispatch = useDispatch();
 
   const boundActionProps = useMemo(
@@ -19,5 +19,5 @@ export function RegistrationFormContainer() {
     [dispatch]
   );
 
-  return <RegistrationForm buttonText="Register" {...boundActionProps} />;
+  return <VoterRegistration buttonText="Register" {...boundActionProps} />;
 }

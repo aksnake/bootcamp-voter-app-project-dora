@@ -2,13 +2,13 @@ import React, { useState, ChangeEvent } from "react";
 
 import { NewVoter } from "../models/voters";
 
-export type RegistrationFormProps = {
+export type VoterRegistrationProps = {
   buttonText: string;
   onRegisterVoter: (newVoter: NewVoter) => void;
 };
 
-export function RegistrationForm(props: RegistrationFormProps) {
-  const [registrationForm, setRegistrationForm] = useState({
+export function VoterRegistration(props: VoterRegistrationProps) {
+  const [registrationForm, setVoterRegistration] = useState({
     firstName: "",
     lastName: "",
     address :"",
@@ -19,7 +19,7 @@ export function RegistrationForm(props: RegistrationFormProps) {
   });
 
   const change = (e: ChangeEvent<HTMLInputElement>) => {
-    setRegistrationForm({
+    setVoterRegistration({
       ...registrationForm,
       [e.target.name]: e.target.value,
     });
@@ -30,7 +30,7 @@ export function RegistrationForm(props: RegistrationFormProps) {
       ...registrationForm,
     });
 
-    setRegistrationForm({
+    setVoterRegistration({
       firstName: "",
       lastName: "",
       address :"",
