@@ -13,7 +13,7 @@ import { Vote } from "./Vote";
 import { Voter } from "./Voter";
 
 import "./VoterApp.css";
-import Dora from "..//dora.png";
+import Dora from "../Dora.png";
 
 //Voter Registration Deadlines for Upcoming Elections
 //Election Name, Last Day to Register to vote
