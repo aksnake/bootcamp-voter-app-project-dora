@@ -1,32 +1,38 @@
 {
-    "voters": [
-      {
-        "id": 1,
-        "firstName": "Sendhil",
-        "lastName": "Grandhi",
-        "address": " 123 Some Street",
-        "city": "San Diego",
-        "birthDate": "5/1/1976",
-        "email": "sgrandghi@test.com",
-        "phone": "111-222-333"
-      }
-    ],
-    "elections":[
-      {
-        "id": 1,
-        "name": "President 2020",
-        "startDate": "11/01/2020 00:00:00.001",
-        "endDate": "11/10/2020 23:59:59.999",
-        "questions": "[{\"president\", \"Give taxcut for electric vehicles on \"}]"
-      }
-    ],
-    "votes": [
-      {
+  "voters": [
+    {
+      "id": 1,
+      "firstName": "Sendhil",
+      "lastName": "Grandhi",
+      "address": " 123 Some Street",
+      "city": "San Diego",
+      "birthDate": "5/1/1976",
+      "email": "sgrandghi@test.com",
+      "phone": "111-222-333"
+    }
+  ],
+  "elections": [
+    {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Question1"
+        },
+        {
+          "id": 2,
+          "question": "Question2"
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "Votes": [
+    {
       "id": 1,
       "voterId": 1,
       "electionId": 1,
       "date": "11/08/2020 23:59:59.999",
       "ballot": "[{\"president\": \"Dora\", \"Give taxcut for electric vehicles on \": \"yes\"}]"
-      }
-    ]
+    }
+  ]
 }
