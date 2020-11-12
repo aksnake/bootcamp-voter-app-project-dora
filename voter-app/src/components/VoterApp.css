@@ -1,0 +1,56 @@
+.rowC{display:inline; flex-direction:row; margin-top: 5px;margin-bottom: 5px;}
+.rowC nav {width: 50%; border-bottom:2px solid #F65209;margin: 2px; background-color: #ACF609;}
+.header {padding-left: 15px; background-color: #F6C909;border-top:2px solid #F65209;border-bottom:2px solid #F65209;}
+.header div {display:flex; flex-direction:column; padding-left: 15px; padding-bottom: 5px; background-color: #F6C909;}
+.stretch div {display: flex; width: 100%;}
+.footer {
+    flex-direction:row; 
+    border-top:2px solid #F65209;
+    border-bottom:20px solid #F6C909;
+    background-color: white;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    min-height: 100px;
+    width: 100%;
+}
+.footer div{
+    display:flex; flex-direction:column; 
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    padding-left: 100px;
+    padding-bottom: 30px;
+}
+
+.main div {
+    display:flex; 
+    flex-direction:column; 
+    width: 100%;
+    height:100%;
+    background-color: transparent;
+}
+.back-button {
+    max-width: 200px;
+    margin: 5px;
+}
+.dora { width: 100px; height:100px; background-color: white;}
+.vote { color: #F65209; font-style: italic;font-weight: bolder;}
+.slogan-header { color: #EC13DA;font-style: italic; font-weight: bold;}
+body, html {
+    height: 100%;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+#root {
+    height: 100%;
+    min-height: 100%;
+}
+

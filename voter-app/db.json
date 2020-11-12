@@ -14,14 +14,18 @@
     "elections":[
       {
         "id": 1,
+        "name": "President 2020",
+        "startDate": "11/01/2020 00:00:00.001",
+        "endDate": "11/10/2020 23:59:59.999",
         "questions": "[{\"president\", \"Give taxcut for electric vehicles on \"}]"
       }
     ],
-    "Votes": [
+    "votes": [
       {
       "id": 1,
       "voterId": 1,
       "electionId": 1,
+      "date": "11/08/2020 23:59:59.999",
       "ballot": "[{\"president\": \"Dora\", \"Give taxcut for electric vehicles on \": \"yes\"}]"
       }
     ]

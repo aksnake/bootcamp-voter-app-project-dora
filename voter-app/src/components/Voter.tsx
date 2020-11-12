@@ -13,17 +13,16 @@ export const Voter = () => {
     const routeMatch = useRouteMatch();
   return (
     <div>
-      Voter
-      <br />
-      <br />
-      <button type="button" onClick={() => history.push("/")}>
-        Go Home
-      </button>
+      <div>Voters</div>
+      {/* Do we need to register for each election?*/}
       <Switch>
         <Route path={routeMatch.path + "/register"}>
-          <div>Register Voter</div>
+          <div>Complete Registration</div>
         </Route>
       </Switch>
+      <button type="button" className='back-button' onClick={() => history.push("/")}>
+        Go Home
+      </button>
     </div>
   );
 };
