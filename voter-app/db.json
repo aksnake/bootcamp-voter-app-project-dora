@@ -29,6 +29,16 @@
       "email": "b",
       "phone": "d",
       "id": 3
+    },
+    {
+      "firstName": "g",
+      "lastName": "g",
+      "address": "g",
+      "city": "g",
+      "birthDate": "g",
+      "email": "g",
+      "phone": "",
+      "id": 4
     }
   ],
   "elections": [
