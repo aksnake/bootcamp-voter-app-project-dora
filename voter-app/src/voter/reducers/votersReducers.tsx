@@ -10,7 +10,7 @@ import {
   isRefreshVotersDoneAction,
 } from "../actions/voterActions";
 
-export const votersReducer: Reducer<Voter[], VoterActions> = (voters = [], action) => {
+export const votersListReducer: Reducer<Voter[], VoterActions> = (voters = [], action) => {
   if (isRefreshVotersDoneAction(action)) {
     return action.payload.voters;
   }
@@ -57,8 +57,8 @@ export const votersSortReducer: Reducer<VotersSort, VoterActions> = (
   return votersSort;
 };
 
-export const voterReducer = combineReducers({
-  voters: votersReducer,
+export const votersReducer = combineReducers({
+  voters: votersListReducer,
   editVoterId: editVoterIdReducer,
   votersSort: votersSortReducer,
 });
