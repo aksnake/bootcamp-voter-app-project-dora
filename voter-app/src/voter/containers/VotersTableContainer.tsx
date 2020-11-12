@@ -10,7 +10,7 @@ import {
   createSortVotersAction,
   refreshVoters,
 } from "../actions/voterActions";
-// import { VoterTable } from "../components/VoterTable";
+import { VoterTable } from "../components/VoterTable";
 // import { voterAppStore } from "../models/voterAppStore";
 
 export function VotersTableContainer() {
@@ -24,6 +24,8 @@ export function VotersTableContainer() {
 
   // const { sortCol, sortDir } = stateProps.votersSort;
   // const { unsortedVoters } = stateProps;
+
+  const sortedVoters = undefined;
 
   // const sortedVoters = useMemo(
   //   () =>
@@ -59,8 +61,5 @@ export function VotersTableContainer() {
       ),
     [dispatch]
   );
-
-  return <div> List Of Voters </div>
-  
-  // return <VoterTable {...stateProps} voters={sortedVoters} {...boundActionProps} />;
+  return <VoterTable {...stateProps} voters={sortedVoters} {...boundActionProps} />;
 }

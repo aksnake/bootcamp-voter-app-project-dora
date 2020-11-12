@@ -23,7 +23,7 @@ export const Voter = () => {
           <button type="button" className='back-button' onClick={() => history.push("/")}> Complete Registration </button>
         </Route>
         <Route path={routeMatch.path + "/list"}>
-          <div> <VotersTableContainer /> </div>
+          <div><VotersTableContainer /></div>
         </Route>
       </Switch>
     </div>
