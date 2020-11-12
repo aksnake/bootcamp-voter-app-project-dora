@@ -9,6 +9,26 @@
       "birthDate": "5/1/1976",
       "email": "sgrandghi@test.com",
       "phone": "111-222-333"
+    },
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "address": "a",
+      "city": "a",
+      "birthDate": "a",
+      "email": "a",
+      "phone": "a",
+      "id": 2
+    },
+    {
+      "firstName": "b",
+      "lastName": "b",
+      "address": "b",
+      "city": "b",
+      "birthDate": "b",
+      "email": "b",
+      "phone": "b",
+      "id": 3
     }
   ],
   "elections": [
