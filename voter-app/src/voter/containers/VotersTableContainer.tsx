@@ -15,28 +15,28 @@ import { VoterTable } from "../components/VoterTable";
 export function VotersTableContainer() {
   const stateProps = useSelector((state: VoterAppState) => {
     return {
-      unsortedVoters: state.voters,
-      editVoterId: state.editVoterId,
-      votersSort: state.votersSort,
+      unsortedVoters: state.voters.voters,
+      editVoterId: state.voters.editVoterId,
+      votersSort: state.voters.votersSort,
     };
   });
 
-  // const { sortCol, sortDir } = stateProps.votersSort;
-  // const { unsortedVoters } = stateProps;
-  const sortedVoters = undefined;
-  // const sortedVoters = useMemo(
-  //   () =>
-  //     [...unsortedVoters].sort((a, b) => {
-  //       if (a[sortCol] < b[sortCol]) {
-  //         return sortDir === "asc" ? -1 : 1;
-  //       } else if (a[sortCol] > b[sortCol]) {
-  //         return sortDir === "asc" ? 1 : -1;
-  //       } else {
-  //         return 0;
-  //       }
-  //     }),
-  //   [unsortedVoters, sortCol, sortDir]
-  // );
+  const { sortCol, sortDir } = stateProps.votersSort;
+  const { unsortedVoters } = stateProps;
+  
+  const sortedVoters = useMemo(
+    () =>
+      [...unsortedVoters].sort((a, b) => {
+        if (a[sortCol] < b[sortCol]) {
+          return sortDir === "asc" ? -1 : 1;
+        } else if (a[sortCol] > b[sortCol]) {
+          return sortDir === "asc" ? 1 : -1;
+        } else {
+          return 0;
+        }
+      }),
+    [unsortedVoters, sortCol, sortDir]
+  );
 
   const dispatch = useDispatch();
 
