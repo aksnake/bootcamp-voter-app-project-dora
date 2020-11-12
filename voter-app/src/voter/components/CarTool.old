@@ -1,0 +1,13 @@
+import React from "react";
+
+import { CarTableContainer } from "../containers/CarTableContainer";
+import { RegistrationFormContainer } from "../containers/RegistrationFormContainer";
+
+export function CarTool() {
+  return (
+    <>
+      <CarTableContainer />
+      <RegistrationFormContainer />
+    </>
+  );
+}

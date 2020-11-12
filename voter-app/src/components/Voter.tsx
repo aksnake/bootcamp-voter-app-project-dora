@@ -6,6 +6,7 @@ import {
     Switch,
     useRouteMatch,
   } from "react-router-dom";
+import { RegistrationFormContainer } from "../voter/containers/RegistrationFormContainer"
 
 export const Voter = () => {
     const history = useHistory();
@@ -13,15 +14,14 @@ export const Voter = () => {
     const routeMatch = useRouteMatch();
   return (
     <div>
-      <div>Voters</div>
-      {/* Do we need to register for each election?*/}
+      <div>Register as a New Voter </div>
       <Switch>
         <Route path={routeMatch.path + "/register"}>
-          <div>Complete Registration</div>
+          <div><RegistrationFormContainer /></div>
         </Route>
       </Switch>
       <button type="button" className='back-button' onClick={() => history.push("/")}>
-        Go Home
+       Complete Registration
       </button>
     </div>
   );
