@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Voter } from "../models/voters";
-// import { VoterEditRow } from "./VoterEditRow";
-// import { VoterViewRow } from "./VoterViewRow";
+import { VoterEditRow } from "./VoterEditRow";
+import { VoterViewRow } from "./VoterViewRow";
 
 import "./VoterTable.css";
 import { VotersSort } from "../../models/voterApp";
@@ -73,7 +73,7 @@ export function VoterTable(props: VoterTableProps) {
           <th className="col-header">Actions</th>
         </tr>
       </thead>
-      {/* <tbody>
+      <tbody>
         {props.voters.map((voter) =>
           voter.id === props.editVoterId ? (
             <VoterEditRow
@@ -91,7 +91,7 @@ export function VoterTable(props: VoterTableProps) {
             />
           )
         )}
-      </tbody> */}
+      </tbody>
     </table>
   );
 }
