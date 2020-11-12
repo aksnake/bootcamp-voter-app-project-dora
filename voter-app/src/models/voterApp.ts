@@ -3,9 +3,6 @@ import {Voter} from "../voter/models/voters"
 
 export type VoterAppState = {
   elections: Election[];
-};
-
-export type VoterState = {
   voters: Voter[];
   editVoterId: number;
   votersSort: VotersSort;

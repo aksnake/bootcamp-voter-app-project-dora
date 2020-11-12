@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
-import { VoterState } from "../../models/voterApp";
+import { VoterAppState } from "../../models/voterApp";
 import {
   replaceVoter,
   removeVoter,
@@ -11,10 +11,9 @@ import {
   refreshVoters,
 } from "../actions/voterActions";
 import { VoterTable } from "../components/VoterTable";
-// import { voterAppStore } from "../models/voterAppStore";
 
 export function VotersTableContainer() {
-  const stateProps = useSelector((state: VoterState) => {
+  const stateProps = useSelector((state: VoterAppState) => {
     return {
       unsortedVoters: state.voters,
       editVoterId: state.editVoterId,
@@ -24,9 +23,7 @@ export function VotersTableContainer() {
 
   // const { sortCol, sortDir } = stateProps.votersSort;
   // const { unsortedVoters } = stateProps;
-
   const sortedVoters = undefined;
-
   // const sortedVoters = useMemo(
   //   () =>
   //     [...unsortedVoters].sort((a, b) => {
