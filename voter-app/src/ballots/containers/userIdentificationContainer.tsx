@@ -6,14 +6,21 @@ import { createBallotForUser } from "../actions/ballotActions";
 import { VoterAppState } from "../../models/voterApp";
 import { Voter } from '../../voter/models/voters';
 import { UserIdentificationForm } from '../components/userIdentification';
-// import { useParams } from 'react-router-dom';
-
+import {
+    useParams,
+    useHistory,
+    Route,
+    Switch,
+    useRouteMatch,
+  } from "react-router-dom";
 export type UserIdentificationFormContainerProps = {
     electionId: number,
 };
 
 export function UserIdentificationFormContainer(props: UserIdentificationFormContainerProps) {
+    const history = useHistory();
 
+    const routeMatch = useRouteMatch();
     //Dummy data till we use useEffect hook to pull voters data
     const voters: Voter[] = []
     const voter1: Voter = {
@@ -32,7 +39,7 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
     const stateProps = useSelector((state: VoterAppState) => {
         // const { id } = useParams<{id: string}>();
         return {
-                voters: voters,//state.voters,
+                voters: voters,//state.voters.voters,//TODO: refactor code to avoid voters.voters?
                 electionId: props.electionId,
             };
         }) as {
@@ -43,11 +50,15 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
             electionId: number,
         };
 
+    //Temporary Code
+    const nextPath = () => {
+        history.push('/ballot');
+    }
 
     //TODO: This should do user validation and did user voted already for same election check and 
     //then create a ballot for the user.
     const boundActionProps =  bindActionCreators({
-        onVoteRequest: createBallotForUser,
+        onVoteRequest: nextPath,//createBallotForUser,
     },
     useDispatch()
     );

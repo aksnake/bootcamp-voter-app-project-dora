@@ -6,4 +6,5 @@ export type VoterAppState = {
   elections: Election[];
   ballots: Ballot[];
   voters: VoterState;
+  selectedElectionId: number;
 };

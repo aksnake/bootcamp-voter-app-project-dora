@@ -20,6 +20,7 @@ export const READ_ALL_BALLOTS_ACTION = "READ_ALL_BALLOTS";
 //Probably REFRESH_BALLOT_REQUEST_ACTION is not required, as we cannot create a Ballot without Election? 
 export const REFRESH_BALLOT_REQUEST_ACTION = "REFRESH_BALLOT_REQUEST_ACTION";
 export const REFRESH_BALLOT_DONE_ACTION = "REFRESH_BALLOT_DONE_ACTION";
+export const BALLOT_DONE_ACTION = "BALLOT_DONE_ACTION";
 
 export const CREATE_BALLOT_REQUEST_ACTION = "CREATE_BALLOT_REQUEST_ACTION";
 
@@ -80,6 +81,44 @@ export const refreshBallots = () => {
   };
 };
 
+export interface VoteCastedAction
+  extends Action<typeof BALLOT_DONE_ACTION> {
+  payload: {
+    message: string;
+  };
+}
+export function isVoteCastedAction(
+    action: AnyAction
+  ): action is VoteCastedAction {
+    return action.type === BALLOT_DONE_ACTION;
+  }
+  
+  export type CreateVoteCastedAction = (
+    message: string
+  ) => VoteCastedAction;
+  
+  export const createVoteCastedAction: CreateVoteCastedAction = (
+    message
+  ) => {
+    return {
+      type: BALLOT_DONE_ACTION,
+      payload: {
+        message,
+      },
+    };
+  };
+  
+  //New Ballot Action needs Election Id to create right ballot for the election, after creating a new ballot
+  //We need to return it to user.
+//   export const castedVote = () => {
+//     return (dispatch: Dispatch) => {
+//       dispatch(createRefreshBallotRequestAction());
+//       return fetch("http://localhost:3060/ballots")
+//         .then((res) => res.json())
+//         .then((ballots) => dispatch(createVoteCastedAction(ballots)));
+//     };
+//   };
+
 
 
 export interface CreateBallotRequestAction extends Action<typeof CREATE_BALLOT_REQUEST_ACTION> {
@@ -121,19 +160,29 @@ export const createBallot = (electionId: number) => {
   };
 };
 
+
+//Some of the work may go to Container and it may make multiple requests to Action instead of below method.
 export const createBallotForUser = (electionId: number, voterId: number, phoneNumber: string) => {
     console.log("CreateBallot request for" + electionId);
   return (dispatch: Dispatch) => {
     dispatch(createCreateBallotRequestAction(electionId));
     //TODO: Not the time to create ballot -Do user verification first. using get call temporarily.
-    return fetch("http://localhost:3060/ballots")
+    //First validation that user identification is correct and user didn't vote already in this election.
+    //then get ballot
+    return fetch("http://localhost:3060/elections")
     // return fetch("http://localhost:3060/ballots", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
     //     body: JSON.stringify(electionId),
     // })
-    .then((res) => res.json()).then((ballot) => {
-      //console.log("Created Ballot " + ballot.id);
+    .then((res) => res.json()).then((election) => {
+        //Create new ballot
+      console.log("Create Ballot for election: " + election.id + ", voter: " + voterId);
+      //TODO: No need to save this ballot with draft state, just pass the newBallot to UI without any backend call, get rid of status.
+      //When it becomes an a call from container we don't need to store questions in ballot too.
+      const newBallot: NewBallot = {voterId: voterId, electionId: electionId, answers: [], questions: election.questions};
+      //createNewBallot(newBallot);
+      //Pass it to a Resolver for new Route with newBallot
       //refreshCreateBallots() (dispatch);//Vote done successfully
     });
   };
@@ -162,17 +211,19 @@ export interface NewBallotAction extends Action<typeof NEW_BALLOT_ACTION> {
   };
   
   export const createNewBallot = (newBallot: NewBallot) => {
-      console.log("Adding NewBallot " + newBallot.answers);
     return (dispatch: Dispatch) => {
       dispatch(createNewBallotAction(newBallot));
       return fetch("http://localhost:3060/ballots", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newBallot),
-      }).then((res) => res.json()).then((ballot) => {
-        console.log("BalNewBallot Added =" + ballot.id);
-        //refreshNewBallots() (dispatch);//Vote done successfully
-      });
+      })
+      .then((res) => res.json())
+      .then((ballot) => {
+        console.log("BalNewBallot Added ="+ ballot.id);
+        dispatch(createVoteCastedAction("Success!"));
+      })
+    //   .then(() => dispatch(createVoteCastedAction("Success!")));
     };
   };
 
@@ -259,4 +310,4 @@ export interface ViewBallotsAction extends Action<typeof READ_ALL_BALLOTS_ACTION
   };
 
   
-export type BallotActions = CreateBallotRequestAction | NewBallotAction | RefreshBallotDoneAction | ViewBallotsAction | ViewAllBallotsAction; 
+export type BallotActions = CreateBallotRequestAction | NewBallotAction | RefreshBallotDoneAction | ViewBallotsAction | ViewAllBallotsAction | VoteCastedAction; 

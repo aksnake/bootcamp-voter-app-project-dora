@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { createBallot } from "../actions/ballotActions";
+import { createCreateBallotRequestAction } from "../actions/ballotActions";
 import { ElectionSelectorForm} from "../components/electionSelector";
 import { VoterAppState } from "../../models/voterApp";
 import { Election, Question } from '../../elections/models/election';
@@ -37,12 +37,13 @@ export function ElectionSelectorFormContainer() {
     const stateProps = useSelector((state: VoterAppState) => {
         return {
                 elections: elections,//state.elections,
+                selectedElectionId: state.selectedElectionId,
             };
         }) as {
             elections : Election[]; 
             selectedElectionId: number,
         };
-
+        const dispatch = useDispatch();
     //Pass Election Id too.
     const nextPath = (id: number) => {
         history.push('/vote/'+id);
@@ -50,11 +51,16 @@ export function ElectionSelectorFormContainer() {
 
     //TODO: This doesn't need any Backend action now, we need to display User Form for identifying (and validating) user.
     //Load UserIdentification.tsx now for selected ElectionID
-    const boundActionProps =  bindActionCreators({
-        onVoteRequest: nextPath,
-    },
-    useDispatch()
-    );
+
+    const boundActionProps = useMemo(
+        () => bindActionCreators(
+        {
+            onVoteRequest: nextPath,//createCreateBallotRequestAction//
+        },
+        dispatch
+        ),
+      [dispatch]
+      );
 
     return <ElectionSelectorForm {...stateProps}{...boundActionProps} />
 }

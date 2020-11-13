@@ -10,7 +10,7 @@ export type ElectionSelectorFormProps = {
 
 export function ElectionSelectorForm(props: ElectionSelectorFormProps) {
     const [elections,, ] = useForm (props.elections);
-    let [selectedElectionId,, resetElectionId ] = useForm (-1);
+    let [selectedElectionId,, resetElectionId ] = useForm (props.selectedElectionId);
     const setElectionId = (id: number) =>  {
         selectedElectionId = id;
     }
@@ -20,6 +20,7 @@ export function ElectionSelectorForm(props: ElectionSelectorFormProps) {
         }
         resetElectionId();
     }
+    //TODO: Use Election Name later instead of id, similar to Voter Firstname in UserIdentification
     let optionItems = props.elections.map((election) =>
     <option key={election.id}>{election.id}</option>
     );
@@ -29,6 +30,7 @@ export function ElectionSelectorForm(props: ElectionSelectorFormProps) {
             <select
                 className="textboxstyle"
                 onChange={(e) => setElectionId(Number(e.target.value))} 
+                defaultValue={selectedElectionId}
                 >
                 <option key='-1'>Select Election</option>
                 {optionItems}

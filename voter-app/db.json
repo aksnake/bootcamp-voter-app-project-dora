@@ -70,24 +70,106 @@
       "id": 1,
       "voterId": 1,
       "electionId": 1,
-      "status": "completed",
-      "answers": [
+      "questions": [
         {
           "id": 1,
-          "answer": true
+          "question": "Question1"
         },
         {
           "id": 2,
-          "answer": false
+          "question": "Question2"
+        }
+      ],
+      "answers": [
+        {
+          "id": 1,
+          "answer": "true"
+        },
+        {
+          "id": 2,
+          "answer": "false"
         }
       ]
     },
     {
-      "id": 2,
+      "electionId": 1,
       "voterId": 1,
-      "electionId": 2,
-      "status": "draft",
-      "answers": []
+      "answers": [
+        {
+          "id": 1,
+          "answer": "No"
+        },
+        {
+          "id": 2,
+          "answer": "Yes"
+        }
+      ],
+      "questions": [],
+      "id": 2
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Yes"
+        },
+        {
+          "id": 2,
+          "answer": "Yes"
+        }
+      ],
+      "questions": [],
+      "id": 3
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Yes"
+        },
+        {
+          "id": 2,
+          "answer": "No"
+        }
+      ],
+      "questions": [],
+      "id": 4
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Yes"
+        },
+        {
+          "id": 2,
+          "answer": "No"
+        }
+      ],
+      "questions": [],
+      "id": 5
+    },
+    {
+      "electionId": 1,
+      "voterId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Yes"
+        },
+        {
+          "id": 2,
+          "answer": "No"
+        }
+      ],
+      "questions": [],
+      "id": 6
     }
   ]
 }
