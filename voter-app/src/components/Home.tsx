@@ -6,8 +6,8 @@ import { UserIdentificationFormContainer } from "../ballots/containers/userIdent
 import { UserValidationState } from "../ballots/models/ballotStore";
 import { Election } from "../elections/models/election";
 import { VoterAppState } from "../models/voterApp";
-import { Voter } from "../voter/models/voters";
-import { VoterState } from "../voter/models/voterStore";
+import { Voter } from "../voters/models/voters";
+import { VoterState } from "../voters/models/voterStore";
 import "./VoterApp.css";
 
 export type HomeProps = {

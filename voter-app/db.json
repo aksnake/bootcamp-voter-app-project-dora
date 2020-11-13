@@ -1,68 +1,18 @@
 {
-  "voters": [
-    {
-      "id": 1,
-      "firstName": "Sendhil",
-      "lastName": "Grandhi",
-      "address": " 123 Some Street",
-      "city": "San Diego",
-      "birthDate": "5/1/1976",
-      "email": "sgrandghi@test.com",
-      "phone": "111-222-333"
-    },
-    {
-      "firstName": "a",
-      "lastName": "a",
-      "address": "a",
-      "city": "a",
-      "birthDate": "a",
-      "email": "a",
-      "phone": "a",
-      "id": 2
-    },
-    {
-      "firstName": "b",
-      "lastName": "b",
-      "address": "b",
-      "city": "b",
-      "birthDate": "b",
-      "email": "b",
-      "phone": "b",
-      "id": 3
-    },
-    {
-      "firstName": "d",
-      "lastName": "d",
-      "address": "d",
-      "city": "d",
-      "birthDate": "d",
-      "email": "d",
-      "phone": "d",
-      "id": 4
-    }
-  ],
+  "voters": [],
   "elections": [
     {
       "questions": [
         {
           "id": 1,
-          "question": "Question1"
+          "question": "What is your name?"
         },
         {
           "id": 2,
-          "question": "Question2"
+          "question": "What is your favorite color?"
         }
       ],
       "id": 1
-    },
-    {
-      "questions": [
-        {
-          "id": 1,
-          "question": "Question1"
-        }
-      ],
-      "id": 2
     }
   ],
   "ballots": [

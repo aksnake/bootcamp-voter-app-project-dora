@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { Voter } from "../models/voters";
 import { VoterEditRow } from "./VoterEditRow";
@@ -16,6 +16,7 @@ export type VoterTableProps = {
   onSaveVoter: (voter: Voter) => void;
   onCancelVoter: () => void;
   onSortVoters: (voter: keyof Voter) => void;
+  onDeleteVoters: (voterIds: {voterId:number}[]) => void;
 };
 
 const sortArrow = (votersSort: VotersSort, sortCol: keyof Voter) => {
@@ -24,11 +25,32 @@ const sortArrow = (votersSort: VotersSort, sortCol: keyof Voter) => {
   );
 };
 
+
+
 export function VoterTable(props: VoterTableProps) {
+
+  const [selectedVoters, setSelectedVoters] = useState([ {voterId:-1}]);
+
+  const selectVoter = (selectedVoterId: number, isChecked:boolean) => {
+    if(isChecked && selectedVoters.indexOf({voterId:selectedVoterId}) === -1){
+      setSelectedVoters([
+        ...selectedVoters, { voterId: selectedVoterId} 
+      ]);
+    } else {
+      setSelectedVoters(selectedVoters.filter((voter) => voter.voterId !== selectedVoterId ));
+    }
+  };
+
+  const seletcteds = selectedVoters.filter((voter) => voter.voterId !== -1)
+
   return (
+    <div> 
     <table id="voter-table">
       <thead>
         <tr>
+          <th className="col-header">
+             Select
+          </th>
           <th className="col-header">
             <button type="button" onClick={() => props.onSortVoters("id")}>
               Id {sortArrow(props.votersSort, "id")}
@@ -87,11 +109,21 @@ export function VoterTable(props: VoterTableProps) {
               voter={voter}
               onEditVoter={props.onEditVoter}
               onDeleteVoter={props.onDeleteVoter}
+              onSelectVoter = {selectVoter}
             />
           )
         )}
       </tbody>
     </table>
+    <div>
+    { seletcteds.length > 0 &&
+      <button type="button" onClick={ () => {
+        props.onDeleteVoters(seletcteds); 
+        setSelectedVoters([ {voterId:-1}]);
+      }}> Delete Selected </button>
+    }
+    </div>
+    </div>
   );
 }
 

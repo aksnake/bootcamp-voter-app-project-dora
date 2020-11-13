@@ -14,10 +14,9 @@ export function ElectionQuestionList(props: ElectionQuestionListProps) {
 
     const questionsListItems = props.questions.map((c) => (
             <li key={c.id}>
-                {c.question} 
-                <button type="button" onClick={() => deleteQuestion(c.id)}>Delete</button>
+                {c.question}    <button type="button" onClick={() => deleteQuestion(c.id)}>Delete</button>
             </li>
     ));
 
-    return <ul> {questionsListItems} </ul>
+    return <ol> {questionsListItems} </ol>
 }

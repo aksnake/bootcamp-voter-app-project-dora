@@ -1,4 +1,5 @@
 import { Action, AnyAction, Dispatch } from "redux";
+import {refreshBallots} from "../../ballots/actions/ballotActions"
 
 import { NewElection, Election } from "../models/election";
 
@@ -59,7 +60,10 @@ export const refreshElections = () => {
     dispatch(createRefreshElectionRequestAction());
     return fetch("http://localhost:3060/elections")
       .then((res) => res.json())
-      .then((elections) => dispatch(createRefreshElectionDoneAction(elections)));
+      .then((elections) => {
+          dispatch(createRefreshElectionDoneAction(elections));
+          refreshBallots() (dispatch);
+      });
   };
 };
 

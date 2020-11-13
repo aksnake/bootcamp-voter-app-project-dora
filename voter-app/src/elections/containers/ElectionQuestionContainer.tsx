@@ -44,8 +44,10 @@ export function ElectionQuestionContainer() {
     return  (
             <div className="election-question-tool">
                 Question List:
-                <ElectionQuestionList questions={questions} onDeleteQuestion={deleteQuestion} />  
-                <ElectionQuestionForm addButtonText="Add Question" onSubmitQuestion={addQuestion}/>
+                <div className="election-question-list">
+                    <ElectionQuestionList questions={questions} onDeleteQuestion={deleteQuestion} />     
+                </div>            
+                <ElectionQuestionForm addButtonText="Add Question" onSubmitQuestion={addQuestion}/>  
                 <br/>
                 <button type="button" onClick={() => addElectionHook({questions})}>Create Election</button>
             </div>

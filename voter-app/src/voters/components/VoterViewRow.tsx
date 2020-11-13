@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 
 import { Voter } from "../models/voters";
 
@@ -8,6 +8,7 @@ export type VoterViewRowProps = {
   voter: Voter;
   onEditVoter: (voterId: number) => void;
   onDeleteVoter: (voterId: number) => void;
+  onSelectVoter : (voterId: number, isChecked:boolean) => void;
 };
 
 export function VoterViewRow(props: VoterViewRowProps) {
@@ -15,8 +16,15 @@ export function VoterViewRow(props: VoterViewRowProps) {
     props.onDeleteVoter(props.voter.id);
   };
 
+  const selectVoter = (e: ChangeEvent<HTMLInputElement>) => {
+    props.onSelectVoter( Number(e.target.value),e.target.checked)
+  }
+
   return (
     <tr>
+      <td className="col-body">
+       <input type="checkbox" id="selectVoter" name="selectVoter" value={props.voter.id} onChange={selectVoter} />  
+      </td>
       <td className="col-body">{props.voter.id}</td>
       <td className="col-body">{props.voter.firstName}</td>
       <td className="col-body">{props.voter.lastName}</td>
