@@ -1,7 +1,6 @@
 .col-body {
   border: 1px solid black;
-  width: auto;
-  height: auto;
+  width: 100%;
   padding: 10px;
   text-align: left;
   background-color: #F6C909;
