@@ -36,15 +36,30 @@
       "questions": [
         {
           "id": 1,
-          "question": "What is your name?"
+          "question": "Do you like the color orange?"
         },
         {
           "id": 2,
-          "question": "What is your favorite color?"
+          "question": "Can you stand on your head?"
         }
       ],
       "id": 1
     }
   ],
-  "ballots": []
+  "ballots": [
+    {
+      "electionId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Yes"
+        },
+        {
+          "id": 2,
+          "answer": "Yes"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
