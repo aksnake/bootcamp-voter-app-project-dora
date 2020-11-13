@@ -36,7 +36,7 @@ export function ElectionSelectorFormContainer() {
 
     const stateProps = useSelector((state: VoterAppState) => {
         return {
-                elections: elections,//state.elections,
+                elections: state.elections,
                 selectedElectionId: state.selectedElectionId,
             };
         }) as {

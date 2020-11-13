@@ -39,7 +39,7 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
 
     const stateProps = useSelector((state: VoterAppState) => {
         return {
-                voters: voters,//state.voters.voters,//TODO: refactor code to avoid voters.voters?
+                voters: state.voters.voters,//TODO: refactor code to avoid voters.voters?
                 electionId: props.electionId,
             };
         }) as {
