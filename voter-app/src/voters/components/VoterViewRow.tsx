@@ -33,7 +33,7 @@ export function VoterViewRow(props: VoterViewRowProps) {
       <td className="col-body">{props.voter.birthDate}</td>
       <td className="col-body">{props.voter.email}</td>
       <td className="col-body">{props.voter.phone}</td>
-      <td>
+      <td className="col-body"> 
         <button type="button" onClick={() => props.onEditVoter(props.voter.id)}>
           Edit
         </button>

@@ -45,7 +45,7 @@ export function VoterTable(props: VoterTableProps) {
 
   return (
     <div> 
-    <table id="voter-table">
+    <table id="voter-table" className="voter-table">
       <thead>
         <tr>
           <th className="col-header">
