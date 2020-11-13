@@ -25,7 +25,8 @@ export const Home = (props: HomeProps) => {
         };
     });
   return <div>
-      <div>Home</div>
+      <br></br>
+      <div></div>
       {
         (props.selectedElectionId === -1 && (props.selectedVoter === undefined || props.selectedVoter.voterId === -1)) ?
       <ElectionSelectorFormContainer/>

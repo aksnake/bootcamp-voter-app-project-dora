@@ -35,7 +35,7 @@ export const Ballot = (props: BallotProps) => {
         answers.forEach(answer => {
             if (answer.answer === '') answer.answer="No";
         });
-        const newBallot: NewBallot = {electionId: props.election.id, voterId: props.voterId, answers: answers, questions:[]};
+        const newBallot: NewBallot = {electionId: props.election.id, voterId: props.voterId, answers: answers};
         props.onCastVote(newBallot);
       };
 

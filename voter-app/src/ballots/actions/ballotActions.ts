@@ -225,7 +225,7 @@ export const createBallotForUser = (electionId: number, voterId: number, phoneNu
       console.log("Create Ballot for election: " + election.id + ", voter: " + voterId);
       //TODO: No need to save this ballot with draft state, just pass the newBallot to UI without any backend call, get rid of status.
       //When it becomes an a call from container we don't need to store questions in ballot too.
-      const newBallot: NewBallot = {voterId: voterId, electionId: electionId, answers: [], questions: election.questions};
+      const newBallot: NewBallot = {voterId: voterId, electionId: electionId, answers: []};
       //createNewBallot(newBallot);
       //Pass it to a Resolver for new Route with newBallot
       //refreshCreateBallots() (dispatch);//Vote done successfully

@@ -5,7 +5,6 @@ export type NewBallot = {
     voterId: number;
     electionId: number;
     answers: Answer[];
-    questions: Question[];
 }
 
 export type NewAnswer = {

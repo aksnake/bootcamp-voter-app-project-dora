@@ -75,7 +75,7 @@ export function VoterApp() {
               <img src={Dora} className='dora'/>
               <div>
                 <label className='vote'>Vote!</label>
-                <small>Dora's Election Management Company, Inc.® </small>
+                <small>Dora's Election Management Company® </small>
               </div>
             </div>
           </footer>

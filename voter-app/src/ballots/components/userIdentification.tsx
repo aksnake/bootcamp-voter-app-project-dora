@@ -10,6 +10,7 @@ export type UserIdentificationFormProps = {
     errorMessage: string,
     electionId: number,
     onVoteRequest: (userValidationState: UserValidationState) => void;
+    goHome:()=>void;
 };
 
 export function UserIdentificationForm(props: UserIdentificationFormProps) {
@@ -51,6 +52,9 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
     );
     return (
         <form>
+            <button type="button" className='back-button' onClick={props.goHome}>
+                Go Home
+            </button>
             <div>
             <select
                 className="textboxstyle"

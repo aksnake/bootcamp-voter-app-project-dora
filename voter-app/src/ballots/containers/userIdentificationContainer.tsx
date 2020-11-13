@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { createValidateUserRequestAction } from "../actions/ballotActions";
+import { createValidateUserRequestAction,createGoHomeAction } from "../actions/ballotActions";
 import { VoterAppState } from "../../models/voterApp";
 import { Voter } from '../../voter/models/voters';
 import { UserIdentificationForm } from '../components/userIdentification';
@@ -59,6 +59,7 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
     //then create a ballot for the user.
     const boundActionProps =  bindActionCreators({
         onVoteRequest: createValidateUserRequestAction,
+        goHome: createGoHomeAction,
     },
     useDispatch()
     );
