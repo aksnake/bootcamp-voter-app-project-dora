@@ -1,8 +1,12 @@
-#voter-table {
+.voter-table {
   margin: 0px 0px;
+  border: 1px solid black;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .col-header {
   font-weight: bold;
   padding: 4px;
+  border: 1px solid black;
 }

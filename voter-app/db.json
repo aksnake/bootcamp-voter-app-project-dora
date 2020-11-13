@@ -1,5 +1,36 @@
 {
-  "voters": [],
+  "voters": [
+    {
+      "firstName": "Foo",
+      "lastName": "Bar",
+      "address": "11234 Somewhere St",
+      "city": "San Diego",
+      "birthDate": "01/01/1970",
+      "email": "foo@bar.com",
+      "phone": "111-222-3456",
+      "id": 1
+    },
+    {
+      "firstName": "Bar",
+      "lastName": "Foo",
+      "address": "98793 Famous Dr",
+      "city": "San Diego",
+      "birthDate": "01/02/1971",
+      "email": "bar@foo.com",
+      "phone": "222-333-4567",
+      "id": 2
+    },
+    {
+      "firstName": "Sam",
+      "lastName": "Bar",
+      "address": "3432 Test Av",
+      "city": "San Diego",
+      "birthDate": "02/09/1972",
+      "email": "sam@bar.com",
+      "phone": "555-444-9999",
+      "id": 3
+    }
+  ],
   "elections": [
     {
       "questions": [
@@ -15,31 +46,5 @@
       "id": 1
     }
   ],
-  "ballots": [
-    {
-      "id": 1,
-      "voterId": 1,
-      "electionId": 1,
-      "questions": [
-        {
-          "id": 1,
-          "question": "Question1"
-        },
-        {
-          "id": 2,
-          "question": "Question2"
-        }
-      ],
-      "answers": [
-        {
-          "id": 1,
-          "answer": "true"
-        },
-        {
-          "id": 2,
-          "answer": "false"
-        }
-      ]
-    }
-  ]
+  "ballots": []
 }
