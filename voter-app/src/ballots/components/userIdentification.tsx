@@ -2,6 +2,7 @@ import React, {ChangeEvent, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { UserValidationState } from '../models/ballotStore';
 import { Voter } from '../../voters/models/voters';
+import "../../components/VoterApp.css";
 
 export type UserIdentificationFormProps = {
     voters: Voter[],
@@ -41,7 +42,7 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
         }
     }
     const submitVote = () =>  {
-        if (voterForm.selectedVoterId !== -1 && voterForm.phoneNumber !== undefined && voterForm.phoneNumber!=='Enter Phone Number') {
+        if (voterForm.selectedVoterId !== -1 && voterForm.phoneNumber !== undefined) {
             const userValidationState: UserValidationState = {voterId: voterForm.selectedVoterId, phoneNumber: voterForm.phoneNumber};
             props.onVoteRequest(userValidationState);
         }
@@ -51,7 +52,7 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
     <option key={voter.id}>{voter.firstName}</option>
     );
     return (
-        <form>
+        <form className="form"> 
             <button type="button" className='back-button' onClick={props.goHome}>
                 Go Home
             </button>
@@ -65,16 +66,18 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
                 </select>
             </div>
             <div>
+                <label>Enter Phone Number :</label>
+                </div>
+            <div>
                 <input
                 type="text"
                 id="phone-input"
                 name="phoneNumber"
-                defaultValue="Enter Phone Number"
                 value={voterForm.phoneNumber}
                 onChange={change}
                 />
             </div>
-            <button type="button" onClick={submitVote}>
+            <button type="button"  onClick={submitVote}>
                 Vote
             </button>
         </form>

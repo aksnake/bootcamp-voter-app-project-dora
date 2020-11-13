@@ -1,6 +1,7 @@
 import React from 'react' 
 import { Election } from '../../elections/models/election';
 import { useForm } from '../../hooks/useForm';
+import "../../components/VoterApp.css";
 
 export type ElectionSelectorFormProps = {
     elections: Election[],
@@ -25,7 +26,7 @@ export function ElectionSelectorForm(props: ElectionSelectorFormProps) {
     <option key={election.id}>{election.id}</option>
     );
     return (
-        <form>
+        <form className="form">
             <div>
             <select
                 className="textboxstyle"

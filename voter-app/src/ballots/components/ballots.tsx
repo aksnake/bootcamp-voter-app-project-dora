@@ -40,7 +40,7 @@ export const Ballot = (props: BallotProps) => {
       };
 
   return (
-    <div>
+    <div className="form">
       <button type="button" className='back-button' onClick={props.goHome}>
         Go Home
       </button>

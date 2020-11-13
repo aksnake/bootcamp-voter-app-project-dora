@@ -54,3 +54,22 @@ body, html {
     min-height: 100%;
 }
 
+select {
+    width: 200px;
+    margin:10px;
+    padding-left: 15px;
+}
+.form button{
+    margin:10px;
+}
+.form label{
+    margin:10px;
+}
+.form input {
+    margin:10px;
+    padding-left: 15px;
+    width: 200px;
+}
+.qtable {
+    margin:10px;
+}

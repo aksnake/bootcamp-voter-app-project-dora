@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { QuestionWithPossibleAnswers } from "../../elections/models/election";
 import { Answer } from "../models/ballot";
 import { QuestionRow } from "./questionRow";
+import "../../components/VoterApp.css";
 
 export type BallotQuestionTableProps = {
   questions: QuestionWithPossibleAnswers[];
@@ -22,7 +23,7 @@ export function BallotQuestionTable(props: BallotQuestionTableProps) {
     props.onValueChange(answersNew);
   }
   return (
-    <table id="ballot-question-table">
+    <table className="qtable" id="ballot-question-table">
       <thead>
         <tr>
           <th className="col-header">No.</th>
