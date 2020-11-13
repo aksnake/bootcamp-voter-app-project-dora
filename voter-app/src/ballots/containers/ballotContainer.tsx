@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
     createNewBallot,
+    createGoHomeAction,
 } from "../actions/ballotActions";
 import { BallotState } from "../models/ballotStore";
 import { Ballot } from "../components/ballots";
@@ -63,6 +64,7 @@ export function BallotContainer() {
     () => bindActionCreators(
     {
         onCastVote: createNewBallot,
+        goHome: createGoHomeAction,
     },
     dispatch
     ),

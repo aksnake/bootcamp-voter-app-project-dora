@@ -1,5 +1,6 @@
 import { Action, AnyAction, Dispatch } from "redux";
 import { Ballot, NewBallot } from "../models/ballot";
+import { UserValidationState } from "../models/ballotStore";
 
 //Actions
 //Create Ballot Action for voting (VoterId, Election Id)
@@ -21,8 +22,11 @@ export const READ_ALL_BALLOTS_ACTION = "READ_ALL_BALLOTS";
 export const REFRESH_BALLOT_REQUEST_ACTION = "REFRESH_BALLOT_REQUEST_ACTION";
 export const REFRESH_BALLOT_DONE_ACTION = "REFRESH_BALLOT_DONE_ACTION";
 export const BALLOT_DONE_ACTION = "BALLOT_DONE_ACTION";
+export const GO_HOME_ACTION = "GO_HOME_ACTION";
 
 export const CREATE_BALLOT_REQUEST_ACTION = "CREATE_BALLOT_REQUEST_ACTION";
+
+export const VALIDATE_USER_REQUEST_ACTION = "VALIDATE_USER_REQUEST_ACTION";
 
 export type RefreshBallotRequestAction = Action<
   typeof REFRESH_BALLOT_REQUEST_ACTION
@@ -67,6 +71,26 @@ export const createRefreshBallotDoneAction: CreateRefreshBallotDoneAction = (
     payload: {
       ballots,
     },
+  };
+};
+
+export interface GoHomeAction
+  extends Action<typeof GO_HOME_ACTION> {
+}
+
+export function isGoHomeAction(
+  action: AnyAction
+): action is GoHomeAction {
+  return action.type === GO_HOME_ACTION;
+}
+
+export type CreateGoHomeAction = (
+) => GoHomeAction;
+
+export const createGoHomeAction: CreateGoHomeAction = (
+) => {
+  return {
+    type: GO_HOME_ACTION,
   };
 };
 
@@ -160,6 +184,27 @@ export const createBallot = (electionId: number) => {
   };
 };
 
+
+export interface ValidateUserRequestAction extends Action<typeof VALIDATE_USER_REQUEST_ACTION> {
+    payload: {
+        userValidation: UserValidationState,
+    };
+  }
+  
+  export function isValidateUserRequestAction(action: AnyAction): action is ValidateUserRequestAction {
+    return action.type === VALIDATE_USER_REQUEST_ACTION;
+  }
+  
+  export type CreateValidateUserRequestAction = (userValidation: UserValidationState) => ValidateUserRequestAction;
+  
+  export const createValidateUserRequestAction: CreateValidateUserRequestAction = (userValidation) => {
+    return {
+      type: VALIDATE_USER_REQUEST_ACTION,
+      payload: {
+        userValidation
+      },
+    };
+  };
 
 //Some of the work may go to Container and it may make multiple requests to Action instead of below method.
 export const createBallotForUser = (electionId: number, voterId: number, phoneNumber: string) => {
@@ -310,4 +355,4 @@ export interface ViewBallotsAction extends Action<typeof READ_ALL_BALLOTS_ACTION
   };
 
   
-export type BallotActions = CreateBallotRequestAction | NewBallotAction | RefreshBallotDoneAction | ViewBallotsAction | ViewAllBallotsAction | VoteCastedAction; 
+export type BallotActions = CreateBallotRequestAction | NewBallotAction | RefreshBallotDoneAction | ViewBallotsAction | ViewAllBallotsAction | VoteCastedAction | ValidateUserRequestAction | GoHomeAction; 

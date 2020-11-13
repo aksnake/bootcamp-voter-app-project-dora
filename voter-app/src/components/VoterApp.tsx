@@ -19,6 +19,7 @@ import { ElectionSelectorForm } from '../ballots/components/electionSelector';
 import { ElectionSelectorFormContainer } from "../ballots/containers/electionSelectorContainer";
 import { UserIdentificationForm } from "../ballots/components/userIdentification";
 import { UserValidation } from "../ballots/components/userValidation";
+import { HomeContainer } from "../ballots/containers/homeContainer";
 
 //Voter Registration Deadlines for Upcoming Elections
 //Election Name, Last Day to Register to vote
@@ -51,21 +52,18 @@ export function VoterApp() {
             </nav>
             <nav>
                 <ul>
-                {/* <li>
-                    <Link to="/">Home</Link>
-                </li> */}
                 <li>
-                    <Link to="/voter/register">Register Voter</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <ElectionSelectorFormContainer/>
+                    <Link to="/voter/register">Register Voter</Link>
                 </li>
                 </ul>
             </nav>
           </div>
           <main className='main'>
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact component={HomeContainer} />
               <Route path="/voter" component={Voter} />
               <Route path="/election" component={Election} />
               <Route path="/ballot" component={Ballot} />

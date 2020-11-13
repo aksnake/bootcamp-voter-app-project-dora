@@ -55,7 +55,7 @@ export function ElectionSelectorFormContainer() {
     const boundActionProps = useMemo(
         () => bindActionCreators(
         {
-            onVoteRequest: nextPath,//createCreateBallotRequestAction//
+            onVoteRequest: createCreateBallotRequestAction,
         },
         dispatch
         ),

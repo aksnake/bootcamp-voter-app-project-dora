@@ -11,6 +11,7 @@ export type BallotProps = {
     answers: Answer[],
     message: string,
     onCastVote: (newBallot: NewBallot) => void;
+    goHome:()=>void;
 };
 
 export const Ballot = (props: BallotProps) => {
@@ -40,7 +41,7 @@ export const Ballot = (props: BallotProps) => {
 
   return (
     <div>
-      <button type="button" className='back-button' onClick={() => history.push("/")}>
+      <button type="button" className='back-button' onClick={props.goHome}>
         Go Home
       </button>
       {/* <div>Select an Election to vote</div> */}

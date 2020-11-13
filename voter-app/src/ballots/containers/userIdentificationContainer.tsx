@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { createBallotForUser } from "../actions/ballotActions";
+import { createValidateUserRequestAction } from "../actions/ballotActions";
 import { VoterAppState } from "../../models/voterApp";
 import { Voter } from '../../voter/models/voters';
 import { UserIdentificationForm } from '../components/userIdentification';
@@ -58,7 +58,7 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
     //TODO: This should do user validation and did user voted already for same election check and 
     //then create a ballot for the user.
     const boundActionProps =  bindActionCreators({
-        onVoteRequest: nextPath,//createBallotForUser,
+        onVoteRequest: createValidateUserRequestAction,
     },
     useDispatch()
     );

@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from 'react' 
 import { useParams } from 'react-router-dom';
 import { Voter } from '../../voter/models/voters';
+import { UserValidationState } from '../models/ballotStore';
 
 export type UserIdentificationFormProps = {
     voters: Voter[],
@@ -8,7 +9,7 @@ export type UserIdentificationFormProps = {
     phoneNumber: string,
     errorMessage: string,
     electionId: number,
-    onVoteRequest: (electionId: number, selectedVoterId: number, phoneNumber: string) => void;
+    onVoteRequest: (userValidationState: UserValidationState) => void;
 };
 
 export function UserIdentificationForm(props: UserIdentificationFormProps) {
@@ -40,7 +41,8 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
     }
     const submitVote = () =>  {
         if (voterForm.selectedVoterId != -1 && voterForm.phoneNumber != '' && voterForm.phoneNumber!=='Enter Phone Number') {
-            props.onVoteRequest(props.electionId, voterForm.selectedVoterId, voterForm.phoneNumber);
+            const userValidationState: UserValidationState = {voterId: voterForm.selectedVoterId, phoneNumber: voterForm.phoneNumber};
+            props.onVoteRequest(userValidationState);
         }
     }
     //TODO: We need a unique name for voter to select here.

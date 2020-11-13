@@ -7,3 +7,8 @@ export type BallotState = {
   answers: Answer[];
   message: string,
 };
+
+export type UserValidationState = {
+  voterId: number,
+  phoneNumber: string,
+}
