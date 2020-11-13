@@ -5,23 +5,14 @@
       "questions": [
         {
           "id": 1,
-          "question": "Question1"
+          "question": "What is your name?"
         },
         {
           "id": 2,
-          "question": "Question2"
+          "question": "What is your favorite color?"
         }
       ],
       "id": 1
-    },
-    {
-      "questions": [
-        {
-          "id": 1,
-          "question": "Question1"
-        }
-      ],
-      "id": 2
     }
   ],
   "ballots": []

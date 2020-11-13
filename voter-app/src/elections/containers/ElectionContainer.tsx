@@ -35,18 +35,24 @@ export function ElectionContainer() {
       [dispatch]
     );
 
+    const loadElectionsButton = stateProps.elections.length ?
+    (<div/>) : (<button type="button" onClick={() => boundActionProps.onRefreshElection()}>Load Elections</button>);
+
     return (
             <div className="election">
+                <br/>
+                <hr/>
                 <ToolHeader headerString="Election List"/>
                 <ElectionStoreProvider>
                     <ElectionTable {...stateProps} />
                 </ElectionStoreProvider>
-                <button type="button" onClick={() => boundActionProps.onRefreshElection()}>Load Elections</button>
-                
+                {loadElectionsButton}                
+                <hr/>
                 <ToolHeader headerString="Create New Election"/>
                 <ElectionQuestionStoreProvider>
                     <ElectionQuestionContainer />
-                </ElectionQuestionStoreProvider>            
+                </ElectionQuestionStoreProvider> 
+                <hr/>           
             </div>
            );
 };

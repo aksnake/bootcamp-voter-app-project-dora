@@ -27,8 +27,11 @@ export function ElectionTable(props: ElectionTableProps) {
         viewResultsHook(electionId);
     };
     
+    //from the list of ballots, collect all which are tied to the election whose results we are viewing, if any  
     const targetBallots = props.ballots.filter(ballot => ballot.electionId===viewResultsElectionId);
+    //tabulate the results from those ballots
     const electionResults = targetBallots.length ?  tabulateResults(targetBallots) : [];
+    //render the cell data
     const electionResultsCellData = electionResults.length ? 
         ( 
             <ol>
@@ -57,7 +60,7 @@ export function ElectionTable(props: ElectionTableProps) {
             </tr>
     )); 
     
-    return  (
+    const table = props.elections.length ? (
                 <table>     
                     <thead>
                     <tr>
@@ -69,13 +72,20 @@ export function ElectionTable(props: ElectionTableProps) {
                     <tbody>{electionTableRows}</tbody>
                 </table>
                 
-    );
+            ) : (<div/>);
+    
+    return table;
 }
 
 const tabulateResults : ResultTabulation = (ballots) => {
    
+    //results map is a list of tabulated results by question (questionId = key)
     const resultsMap = new Map<number, Map<string, number>>();
-    ballots.map((ballot)=> addBallotResult(ballot, resultsMap)); 
+    
+    //for each ballot, update the answer counts for each question
+    ballots.map((ballot)=> addBallotToResults(ballot, resultsMap)); 
+    
+    //convert the map to an ElectionResult object
     const finalResults: ElectionResult[]  = [];   
     resultsMap.forEach((val, key) => {
                             const answerTotals: AnswerTotal[]  = [];
@@ -87,7 +97,7 @@ const tabulateResults : ResultTabulation = (ballots) => {
 }
 
 
-function addBallotResult(ballot: Ballot, resultsMap: Map<number, Map<string, number>>) {    
+function addBallotToResults(ballot: Ballot, resultsMap: Map<number, Map<string, number>>) {    
     ballot.answers.map((entry) => 
         {
             //get the existing list of answers for the given associated question (tied to answer id)
