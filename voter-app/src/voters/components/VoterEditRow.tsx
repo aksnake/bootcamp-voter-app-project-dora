@@ -2,6 +2,8 @@ import React, { useState, ChangeEvent } from "react";
 
 import { Voter } from "../models/voters";
 
+import "./styles/VoterEditRow.css";
+
 export type VoterEditRowProps = {
   voter: Voter;
   onSaveVoter: (voter: Voter) => void;
@@ -47,8 +49,9 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
 
   return (
     <tr>
-      <td>{props.voter.id}</td>
-      <td>
+      <td className="col-body"></td>
+      <td className="col-body">{props.voter.id}</td>
+      <td className="col-body">
         <input
           type="text"
           id="firstName-input"
@@ -58,7 +61,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="lastName-input"
@@ -68,7 +71,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="address-input"
@@ -78,7 +81,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="city-input"
@@ -88,7 +91,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
       
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="birthDate-input"
@@ -98,7 +101,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="email-input"
@@ -108,7 +111,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <input
           type="text"
           id="phone-input"
@@ -118,7 +121,7 @@ export const VoterEditRow = (props: VoterEditRowProps) => {
         />
       </td>
 
-      <td>
+      <td className="col-body">
         <button type="button" onClick={saveVoter}>
           Save
         </button>

@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo} from 'react';
 import {bindActionCreators} from 'redux';
 import {useSelector, useDispatch} from 'react-redux';
-import {ElectionTable} from '../components/ElectionTable';
+import {ElectionTableContainer} from '../containers/ElectionTableContainer';
 import {ElectionQuestionContainer} from '../containers/ElectionQuestionContainer';
 import {ElectionQuestionStoreProvider} from "../context/electionQuestionStoreContext";
 import {ElectionStoreProvider} from "../context/electionStoreContext";
@@ -11,7 +11,7 @@ import {VoterAppState} from "../../models/voterApp";
 import {ToolHeader} from "../../components/ToolHeader";
 import "../components/ElectionFlow.css";
 
-import {refreshElections} from '../actions/electionToolActions';
+import {refreshElections, viewElectionResults} from '../actions/electionToolActions';
 
 export function ElectionContainer() {
     
@@ -33,6 +33,7 @@ export function ElectionContainer() {
         bindActionCreators(
           {
             onRefreshElection: refreshElections,
+            onViewResults: viewElectionResults,
           },
           dispatch
         ),
@@ -48,7 +49,7 @@ export function ElectionContainer() {
                 <hr/>
                 <ToolHeader headerString="Election List"/>
                 <ElectionStoreProvider>
-                    <ElectionTable {...stateProps} />
+                    <ElectionTableContainer {...stateProps} onViewResults={boundActionProps.onViewResults} />
                 </ElectionStoreProvider>
                 {loadElectionsButton}                
                 <hr/>

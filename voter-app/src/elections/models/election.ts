@@ -22,4 +22,13 @@ export type NewElectionWithQnAnswers = {
 export type QuestionWithPossibleAnswers = NewQuestionWithPossibleAnswers & Item;
 export type ElectionWithQnAnswers = NewElectionWithQnAnswers & Item;
 
+export type ElectionResult = {
+    questionId: number,
+    answerTotals: AnswerTotal[];
+}
+
+export type AnswerTotal = {
+    result: string,
+    count: number,
+}
 

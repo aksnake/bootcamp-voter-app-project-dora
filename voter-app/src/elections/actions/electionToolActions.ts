@@ -104,6 +104,14 @@ export const createAddElectionAction: CreateAddElectionAction = (election) => {
   };
 };
 
+export const viewElectionResults = (electionId: number) => {
+    console.log("Viewing Election results" + electionId);
+    return (dispatch: Dispatch) => {
+        dispatch(createViewElectionResultsAction(electionId));
+        refreshBallots() (dispatch);    
+  };
+};
+
 export interface ViewElectionResultsAction extends Action<typeof VIEW_ELECTION_RESULTS_ACTION> {
   payload: {
     electionId: number;

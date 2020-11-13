@@ -7,6 +7,13 @@
 
 .col-header {
   font-weight: bold;
+<<<<<<< HEAD
   padding: 4px;
   border: 1px solid black;
+=======
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  background-color: #ACF609;
+>>>>>>> 6624c5d84bcc9d656775c64c7d06683e9e8b63a9
 }
