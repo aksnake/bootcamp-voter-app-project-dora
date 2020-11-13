@@ -41,7 +41,7 @@ export function UserIdentificationForm(props: UserIdentificationFormProps) {
         }
     }
     const submitVote = () =>  {
-        if (voterForm.selectedVoterId != -1 && voterForm.phoneNumber != '' && voterForm.phoneNumber!=='Enter Phone Number') {
+        if (voterForm.selectedVoterId !== -1 && voterForm.phoneNumber !== undefined && voterForm.phoneNumber!=='Enter Phone Number') {
             const userValidationState: UserValidationState = {voterId: voterForm.selectedVoterId, phoneNumber: voterForm.phoneNumber};
             props.onVoteRequest(userValidationState);
         }
