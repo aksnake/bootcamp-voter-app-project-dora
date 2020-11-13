@@ -32,6 +32,7 @@
     width: 100%;
     height:100%;
     background-color: transparent;
+    margin-bottom: 25px;
 }
 .back-button {
     max-width: 200px;
