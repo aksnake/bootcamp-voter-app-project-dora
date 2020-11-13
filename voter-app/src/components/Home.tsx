@@ -21,7 +21,8 @@ export type HomeProps = {
 export const Home = (props: HomeProps) => {
   const stateProps = useSelector((state: VoterAppState) => {
     return {
-      electionId: state.selectedElectionId,
+      electionId: props.selectedElectionId,
+      voters: props.voters.voters,
         };
     });
   return <div>

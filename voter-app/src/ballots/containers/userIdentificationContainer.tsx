@@ -15,6 +15,7 @@ import {
   } from "react-router-dom";
 export type UserIdentificationFormContainerProps = {
     electionId: number,
+    voters: Voter[]
 };
 
 export function UserIdentificationFormContainer(props: UserIdentificationFormContainerProps) {
@@ -37,7 +38,6 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
 
 
     const stateProps = useSelector((state: VoterAppState) => {
-        // const { id } = useParams<{id: string}>();
         return {
                 voters: voters,//state.voters.voters,//TODO: refactor code to avoid voters.voters?
                 electionId: props.electionId,
@@ -49,11 +49,6 @@ export function UserIdentificationFormContainer(props: UserIdentificationFormCon
             errorMessage: string,
             electionId: number,
         };
-
-    //Temporary Code
-    const nextPath = () => {
-        history.push('/ballot');
-    }
 
     //TODO: This should do user validation and did user voted already for same election check and 
     //then create a ballot for the user.
