@@ -1,7 +1,8 @@
 .voter-table {
   margin: 0px 0px;
   border: 1px solid black;
-  width: 100%;
+  width: auto;
+  height: auto;
   border-collapse: collapse;
 }
 
