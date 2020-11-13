@@ -10,8 +10,15 @@ import { BallotState } from "../models/ballotStore";
 import { Ballot } from "../components/ballots";
 import { Election, ElectionWithQnAnswers, Question, QuestionWithPossibleAnswers } from "../../elections/models/election";
 import { Answer } from "../models/ballot";
+import { VoterAppState } from "../../models/voterApp";
 
 export function BallotContainer() {
+  let currentElections: Election[];
+  let selectedElection: number = -1;
+  const mainProps = useSelector((mainstate: VoterAppState) => {
+    currentElections = mainstate.elections;
+    selectedElection = mainstate.selectedElectionId;
+  });
   const stateProps = useSelector((state: BallotState) => {
     const getQuestionsWithPossibleAnswers = (questions: Question[]) => {
         const questionsWithPossibleAnswers: QuestionWithPossibleAnswers[] = [];
@@ -49,11 +56,12 @@ export function BallotContainer() {
     elections.push(election1); 
     elections.push(election2); 
 
-    const election = {id: 1, questions: questions1};//{...state.election};
+    currentElections.filter(e => e.id === selectedElection).pop();
+    const election = currentElections.filter(e => e.id === selectedElection)[0];;//{...state.election};//{id: 1, questions: questions1};//
     const electionWithQnAnswers = getElectionWithQnPossibleAnswers(election);
     return {
       election: electionWithQnAnswers,
-      voterId: 1,//state.voterId,
+      voterId: state.voterId,
       answers: getAnswersInitialArray(electionWithQnAnswers),
       message: state.message,
     };
