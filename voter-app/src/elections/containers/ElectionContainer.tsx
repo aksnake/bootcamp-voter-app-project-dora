@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {bindActionCreators} from 'redux';
 import {useSelector, useDispatch} from 'react-redux';
 import {ElectionTable} from '../components/ElectionTable';
@@ -22,8 +22,12 @@ export function ElectionContainer() {
         };
       }) as { elections: Election[], ballots: Ballot[]; };
            
-    const dispatch = useDispatch();
+
     
+    const dispatch = useDispatch();
+    useEffect(() => {
+      refreshElections()(dispatch);
+    }, [dispatch]);
     const boundActionProps = useMemo(
       () =>
         bindActionCreators(
