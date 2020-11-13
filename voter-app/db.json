@@ -46,11 +46,11 @@
       "questions": [
         {
           "id": 1,
-          "question": "Question1"
+          "question": "Do you like the color green?"
         },
         {
           "id": 2,
-          "question": "Question2"
+          "question": "Do you like racoons?"
         }
       ],
       "id": 1
@@ -59,7 +59,7 @@
       "questions": [
         {
           "id": 1,
-          "question": "Question1"
+          "question": "What is your favorite animal?"
         }
       ],
       "id": 2
