@@ -7,6 +7,7 @@ export const REFRESH_VOTERS_DONE_ACTION = "REFRESH_VOTERS_DONE";
 export const APPEND_VOTER_REQUEST_ACTION = "APPEND_VOTER_REQUEST";
 export const REPLACE_VOTER_REQUEST_ACTION = "REPLACE_VOTER_REQUEST";
 export const REMOVE_VOTER_REQUEST_ACTION = "REMOVE_VOTER_REQUEST";
+export const REMOVE_VOTERS_REQUEST_ACTION = "REMOVE_VOTERS_REQUEST";
 export const EDIT_VOTER_ACTION = "EDIT_VOTER";
 export const CANCEL_VOTER_ACTION = "CANCEL_VOTER";
 export const SORT_VOTERS_ACTION = "SORT_VOTERS";
@@ -247,12 +248,58 @@ export const createSortVotersAction: CreateSortVotersAction = (
   };
 };
 
+
+
+export interface RemoveVotersRequestAction
+  extends Action<typeof REMOVE_VOTERS_REQUEST_ACTION> {
+  payload: {
+    voterIds: {voterId:number}[]
+  };
+}
+
+export function isRemoveVotersRequestAction(
+  action: AnyAction
+): action is RemoveVotersRequestAction {
+  return action.type === REMOVE_VOTERS_REQUEST_ACTION;
+}
+
+export type CreateRemoveVotersRequestAction = (
+  voterIds: {voterId:number}[]
+) => RemoveVotersRequestAction;
+
+export const createRemoveVotersRequestAction: CreateRemoveVotersRequestAction = (
+  voterIds: {voterId:number}[]
+) => {
+  return {
+    type: REMOVE_VOTERS_REQUEST_ACTION,
+    payload: {
+      voterIds,
+    },
+  };
+};
+
+export const removeVoters = (voterIds: {voterId:number}[]) => {
+  return (dispatch: Dispatch) => {
+    return Promise.all(
+      voterIds.map((voter: {voterId:number}) => {
+            dispatch(createRemoveVoterRequestAction(voter.voterId));
+            return fetch("http://localhost:3060/voters/" + voter.voterId, {
+              method: "DELETE",
+            });
+          })
+        ).then(() => {
+          refreshVoters()(dispatch);
+    });
+  };
+};
+
 export type VoterActions =
   | RefreshVotersRequestAction
   | RefreshVotersDoneAction
   | AppendVoterRequestAction
   | ReplaceVoterRequestAction
   | RemoveVoterRequestAction
+  | RemoveVotersRequestAction
   | EditVoterAction
   | CancelVoterAction
   | SortVotersAction;

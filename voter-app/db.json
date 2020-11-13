@@ -1,56 +1,15 @@
 {
-  "voters": [
-    {
-      "id": 1,
-      "firstName": "Sendhil",
-      "lastName": "Grandhi",
-      "address": " 123 Some Street",
-      "city": "San Diego",
-      "birthDate": "5/1/1976",
-      "email": "sgrandghi@test.com",
-      "phone": "111-222-333"
-    },
-    {
-      "firstName": "a",
-      "lastName": "a",
-      "address": "a",
-      "city": "a",
-      "birthDate": "a",
-      "email": "a",
-      "phone": "a",
-      "id": 2
-    },
-    {
-      "firstName": "b",
-      "lastName": "b",
-      "address": "b",
-      "city": "b",
-      "birthDate": "b",
-      "email": "b",
-      "phone": "d",
-      "id": 3
-    },
-    {
-      "firstName": "g",
-      "lastName": "g",
-      "address": "g",
-      "city": "g",
-      "birthDate": "g",
-      "email": "g",
-      "phone": "",
-      "id": 4
-    }
-  ],
+  "voters": [],
   "elections": [
     {
       "questions": [
         {
           "id": 1,
-          "question": "Do you like the color green?"
+          "question": "Question1"
         },
         {
           "id": 2,
-          "question": "Do you like racoons?"
+          "question": "Question2"
         }
       ],
       "id": 1
@@ -59,35 +18,11 @@
       "questions": [
         {
           "id": 1,
-          "question": "What is your favorite animal?"
+          "question": "Question1"
         }
       ],
       "id": 2
     }
   ],
-  "ballots": [
-    {
-      "id": 1,
-      "voterId": 1,
-      "electionId": 1,
-      "status": "completed",
-      "answers": [
-        {
-          "id": 1,
-          "answer": true
-        },
-        {
-          "id": 2,
-          "answer": false
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "voterId": 1,
-      "electionId": 2,
-      "status": "draft",
-      "answers": []
-    }
-  ]
+  "ballots": []
 }

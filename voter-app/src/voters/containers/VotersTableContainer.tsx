@@ -9,6 +9,7 @@ import {
   createCancelVoterAction,
   createSortVotersAction,
   refreshVoters,
+  removeVoters,
 } from "../actions/voterActions";
 import { VoterTable } from "../components/VoterTable";
 
@@ -53,6 +54,7 @@ export function VotersTableContainer() {
           onEditVoter: createEditVoterAction,
           onCancelVoter: createCancelVoterAction,
           onSortVoters: createSortVotersAction,
+          onDeleteVoters: removeVoters,
         },
         dispatch
       ),
